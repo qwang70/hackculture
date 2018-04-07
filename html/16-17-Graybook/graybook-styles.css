@@ -1,0 +1,171 @@
+body {
+    font-family: arial, verdana, helvetica, sans-serif;
+    font-size: 78%;
+    line-height: 1.5em;
+    padding: 20px;
+    background-attachment: fixed;
+    background-clip: border-box;
+    background-image: url(BOT-main-global-graybook.jpg);
+    background-origin: padding-box;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+}
+ul { list-style:none; } 
+div.header {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 120%;
+}
+h1 {
+    font-size: 115%;
+	text-align: center;
+    margin-bottom: 0em;
+    clear: both;
+}
+div.header div.date {
+    float: left;
+    width: 100%; /*33%;*/
+    clear:both;
+}
+div.header span {
+    float: left;
+    display: inline-block;
+    width: 20%; /*33%;*/
+}
+div.header span.right {
+    float: right;
+    display: inline-block;
+    width: 20%; /*33%;*/
+}
+.header span.center {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin-top: 0;
+}
+.campus-heading {
+    width: 100%;
+    text-align: center;
+    font-size: 120%;
+}
+.back-to-TOC-heading {
+    width: 100%;
+    font-size: 120%;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1pt solid #959595; /* Border defined to demonstrate structure -- remove when finished */
+    margin-bottom: 10px;
+}
+thead th {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    vertical-align: bottom;
+}
+th.job-heading {
+    width: 26%; /*18em;*/
+    text-align: center;
+    color: #ffffff;
+    font-size: 120%;
+    font-weight: bold;
+    background-color: #66aad7;
+    border-right: 1px solid #ffffff;
+}
+th.empl-heading {
+    text-align: center;
+    color: #ffffff;
+    width: 26%; /*18em;*/
+    font-size: 120%;
+    font-weight: bold;
+    background-color: #66aad7;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid #000000;
+}
+th.ten-heading, th.empclass-heading, th.presfte-heading, th.propfte-heading, th.pressal-heading, th.propsal-heading {
+    border-right: 1px solid #ffffff;
+}
+th.propsal-heading {
+    border-right: 1px solid #000000;
+}
+th, td {
+    padding: 2px 5px;
+}
+th.college-heading {
+    text-align: left;
+    font-size: 120%;
+    color: #000000;
+    background-color: #ebebeb;
+    border: 1px solid #000;
+}
+th.dept-heading {
+    border: 1px solid #000;
+    text-align: left;
+    padding-left: 2em;
+    font-style: italic;
+    font-size: 120%;
+}
+th.empl {
+    text-align: left;
+    vertical-align: top;
+    font-weight: normal;
+    color: #000000;
+    width: 18em; /* 18em */
+    background-color: #e8f7fe;
+}
+th.total {
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+    background-color: #e8f7fe;
+}
+td {
+    text-align: center;
+    width: 10%;
+}
+td.job {
+    text-align: left;
+    font-weight: normal;
+    width: 26%; /* 18em */
+}
+td.italic {
+    font-style: italic;
+}
+td.italic-right {
+    font-style: italic;
+    text-align: right;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
+.visually-hidden {
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    top: -30em;
+    left: -300em;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    width: 1px;
+}
+.topBorder { margin-top: 20px; border-top: 1pt solid #959595; } 
+.btmBorder { border-bottom: 1pt solid #959595; border: 1pt solid #959595; }
+
+th {
+    border: 1pt solid #959595;;
+    background-color: #e8f7fe;
+    color: #ffffff;
+    font-size: 120%;
+    font-weight: bold;
+    background-color: #66aad7;
+}
+td {
+    border: 1pt solid #959595;
+    background-color: #ffffe5;
+}
