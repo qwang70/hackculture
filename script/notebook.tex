@@ -327,16 +327,285 @@ campus}\label{q4-list-the-median-salary-of-all-departmentall-job-in-a-campus}
         \PY{k+kn}{import} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{plotly} \PY{k}{as} \PY{n+nn}{py}
         \PY{k+kn}{from} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{graph\PYZus{}objs} \PY{k}{import} \PY{o}{*}
         \PY{k+kn}{import} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{tools} \PY{k}{as} \PY{n+nn}{tls}
-        \PY{n}{plotly}\PY{o}{.}\PY{n}{tools}\PY{o}{.}\PY{n}{set\PYZus{}credentials\PYZus{}file}\PY{p}{(}\PY{n}{username}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{wangqiwen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{api\PYZus{}key}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{8r40jKGvIemGyOP1PEZ1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        
+        \PY{k+kn}{from} \PY{n+nn}{ipywidgets} \PY{k}{import} \PY{n}{widgets} 
+        
+        \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{display}\PY{p}{,} \PY{n}{clear\PYZus{}output}\PY{p}{,} \PY{n}{Image}
+        \PY{k+kn}{from} \PY{n+nn}{plotly}\PY{n+nn}{.}\PY{n+nn}{widgets} \PY{k}{import} \PY{n}{GraphWidget}
+        
+        \PY{c+c1}{\PYZsh{}plotly.tools.set\PYZus{}credentials\PYZus{}file(username=\PYZsq{}wangqiwen\PYZsq{}, api\PYZus{}key=\PYZsq{}8r40jKGvIemGyOP1PEZ1\PYZsq{})}
+\end{Verbatim}
+
+
+    
+    \begin{verbatim}
+<IPython.core.display.Javascript object>
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{c+c1}{\PYZsh{} import csv data}
+         \PY{n}{SalaryOverYears} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://raw.githubusercontent.com/qwang70/hackculture/master/csv/SalaryOverYears.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{SalaryOverYears}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{} tls.get\PYZus{}embed(\PYZsq{}https://plot.ly/\PYZti{}chris/1638\PYZsq{})}
-        \PY{c+c1}{\PYZsh{} import csv data}
-        \PY{n}{SalaryOverYears} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{../csv/SalaryOverYears.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-\end{Verbatim}
+                             College            Campus  \textbackslash{}
+0      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+1      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+2      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+3      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+4      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+5      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+6      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+7      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+8      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+9      Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+10     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+11     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+12     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+13     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+14     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+15     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+16     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+17     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+18     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+19     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+20     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+21     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+22     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+23     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+24     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+25     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+26     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+27     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+28     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+29     Agr, Consumer, \& Env Sciences  Urbana-Champaign   
+{\ldots}                              {\ldots}               {\ldots}   
+5631  Vice Chanc for Student Affairs           Chicago   
+5632  Vice Chanc for Student Affairs           Chicago   
+5633  Vice Chanc for Student Affairs           Chicago   
+5634  Vice Chanc for Student Affairs           Chicago   
+5635  Vice Chanc for Student Affairs           Chicago   
+5636  Vice Chanc for Student Affairs           Chicago   
+5637  Vice Chanc for Student Affairs           Chicago   
+5638  Vice Chanc for Student Affairs           Chicago   
+5639  Vice Chanc for Student Affairs           Chicago   
+5640  Vice Chanc for Student Affairs           Chicago   
+5641  Vice Chanc for Student Affairs           Chicago   
+5642  Vice Chanc for Student Affairs           Chicago   
+5643  Vice Chanc for Student Affairs           Chicago   
+5644    Vice Chancellor for Research           Chicago   
+5645    Vice Chancellor for Research           Chicago   
+5646    Vice Chancellor for Research           Chicago   
+5647    Vice Chancellor for Research           Chicago   
+5648    Vice Chancellor for Research           Chicago   
+5649    Vice Chancellor for Research           Chicago   
+5650    Vice Chancellor for Research           Chicago   
+5651    Vice Chancellor for Research           Chicago   
+5652    Vice Chancellor for Research           Chicago   
+5653    Vice Chancellor for Research           Chicago   
+5654    Vice Chancellor for Research           Chicago   
+5655    Vice Chancellor for Research  Urbana-Champaign   
+5656    Vice Chancellor for Research  Urbana-Champaign   
+5657    Vice Chancellor for Research  Urbana-Champaign   
+5658    Vice Chancellor for Research  Urbana-Champaign   
+5659    Vice Chancellor for Research  Urbana-Champaign   
+5660    Vice Chancellor for Research  Urbana-Champaign   
 
+                          Department                  EmployeeName  \textbackslash{}
+0              ADM Institute for PHL                 Kumar, Deepak   
+1           Agr \& Consumer Economics          Allen-Smith, Joyce E   
+2           Agr \& Consumer Economics                   Ando, Amy W   
+3           Agr \& Consumer Economics   Arends-Kuenning, Mary Paula   
+4           Agr \& Consumer Economics           Baylis, Katherine R   
+5           Agr \& Consumer Economics            Brozovic, Nicholas   
+6           Agr \& Consumer Economics              Bullock, David S   
+7           Agr \& Consumer Economics            Christensen, Peter   
+8           Agr \& Consumer Economics               Crost, Benjamin   
+9           Agr \& Consumer Economics              Dall'Erba, Sandy   
+10          Agr \& Consumer Economics              Ellinger, Paul N   
+11          Agr \& Consumer Economics               Ellison, Brenna   
+12          Agr \& Consumer Economics               Endres, A Bryan   
+13          Agr \& Consumer Economics              Fox, John Andrew   
+14          Agr \& Consumer Economics                Garcia, Philip   
+15          Agr \& Consumer Economics            Goldsmith, Peter D   
+16          Agr \& Consumer Economics              Gramig, Benjamin   
+17          Agr \& Consumer Economics              Gundersen, Craig   
+18          Agr \& Consumer Economics           Hornbaker, Robert H   
+19          Agr \& Consumer Economics                Irwin, Scott H   
+20          Agr \& Consumer Economics                 Khanna, Madhu   
+21          Agr \& Consumer Economics             Kirwan, Barrett E   
+22          Agr \& Consumer Economics       Lyons, Angela Christine   
+23          Agr \& Consumer Economics              Mallory, Mindy L   
+24          Agr \& Consumer Economics              McNamara, Paul E   
+25          Agr \& Consumer Economics             Michelson, Hope C   
+26          Agr \& Consumer Economics                  Myers, Erica   
+27          Agr \& Consumer Economics             Nelson, Charles H   
+28          Agr \& Consumer Economics                   Onal, Hayri   
+29          Agr \& Consumer Economics           Paulson, Nicholas D   
+{\ldots}                              {\ldots}                           {\ldots}   
+5631          International Services                Ulrich, Travis   
+5632       Student Aff-Counseling Sv        Bratney, Caroline Rose   
+5633       Student Aff-Counseling Sv              Doshi, Rachana D   
+5634       Student Aff-Counseling Sv  Frank, Heather Leah Michelle   
+5635       Student Aff-Counseling Sv                Kramer, Brooke   
+5636       Student Aff-Counseling Sv             Neale, Benjamin H   
+5637       Student Aff-Counseling Sv       Niebes-Davis, Allison J   
+5638    Student Development Services               Little, Bernard   
+5639    Student Development Services                 Long, Spencer   
+5640    Student Development Services        O'Neill, Keith Brendan   
+5641    Student Development Services          Petersen, Carol Anne   
+5642    Student Development Services        Stewart, Jessica Elena   
+5643    Student Development Services             Vasquez, Philip L   
+5644   Biologic Resources Laboratory           Adams, Cynthia Rose   
+5645   Biologic Resources Laboratory            Coda, Kathleen Ann   
+5646   Biologic Resources Laboratory                  Dutton, John   
+5647   Biologic Resources Laboratory                Goldman, Julia   
+5648   Biologic Resources Laboratory      Greenstein, Abigail Wolf   
+5649   Biologic Resources Laboratory        Szilagyi, Keely Laurie   
+5650   Biologic Resources Laboratory             Thiede, Allison J   
+5651   Biologic Resources Laboratory                 Wolf, Abigail   
+5652   Inst/Environmntl Sci \& Policy              Chopra, Shauhrat   
+5653  Office for the Pro of Res Subj           Joaquin, Jennifer V   
+5654                         Softech               Talandis, Jonas   
+5655   Agr Animal Care \& Use Program           Shipley, Clifford F   
+5656     Division of Research Safety              Miller, Monica A   
+5657     Division of Research Safety              Scherer, David J   
+5658   Office of Corporate Relations                Puzey, Megan L   
+5659   Office of Corporate Relations          Rehberg, Katheryne J   
+5660   Office of Corporate Relations           Westerstahl, Olof P   
+
+               JobTitle             Tenure  Salary2013  Salary2014  \textbackslash{}
+0     POSTDOC RES ASSOC            No Info         NaN         NaN   
+1            ASSOC PROF  Indefinite Tenure    91479.00         NaN   
+2                  PROF  Indefinite Tenure    98403.00   112355.00   
+3            ASSOC PROF  Indefinite Tenure    90842.16    93059.16   
+4            ASSOC PROF  Indefinite Tenure    98025.00   101211.00   
+5            ASSOC PROF  Indefinite Tenure    92163.12         NaN   
+6                  PROF  Indefinite Tenure   110025.08   115611.08   
+7             ASST PROF  Probationary Term         NaN         NaN   
+8             ASST PROF  Probationary Term         NaN   112000.00   
+9            ASSOC PROF  Indefinite Tenure         NaN         NaN   
+10                 PROF  Indefinite Tenure   138234.00   143470.00   
+11            ASST PROF  Probationary Term    82000.00    84665.00   
+12                 PROF  Indefinite Tenure    96750.00   102703.00   
+13                 PROF  Indefinite Tenure         NaN         NaN   
+14                 PROF  Indefinite Tenure   133145.00   137797.00   
+15                 PROF  Indefinite Tenure    96171.08   100816.08   
+16           ASSOC PROF  Indefinite Tenure         NaN         NaN   
+17                 PROF  Indefinite Tenure   132800.00   142846.00   
+18           ASSOC PROF  Indefinite Tenure    74683.08         NaN   
+19                 PROF  Indefinite Tenure   184000.00   185020.00   
+20                 PROF  Indefinite Tenure   122524.07   131025.07   
+21            ASST PROF  Terminal Contract   102500.00   104294.00   
+22           ASSOC PROF  Indefinite Tenure    99088.00   100822.00   
+23           ASSOC PROF  Indefinite Tenure    88050.00    94208.00   
+24           ASSOC PROF  Indefinite Tenure   107500.00   111025.00   
+25            ASST PROF  Probationary Term         NaN    95000.00   
+26            ASST PROF  Probationary Term         NaN         NaN   
+27           ASSOC PROF  Indefinite Tenure    92656.08    95509.08   
+28                 PROF  Indefinite Tenure   110125.00   116153.00   
+29           ASSOC PROF  Indefinite Tenure    93605.00   103413.00   
+{\ldots}                 {\ldots}                {\ldots}         {\ldots}         {\ldots}   
+5631          ASSOC DIR            No Info    62000.00    63550.00   
+5632  POSTDOC RES ASSOC            No Info         NaN         NaN   
+5633  POSTDOC RES ASSOC            No Info         NaN         NaN   
+5634  POSTDOC RES ASSOC            No Info    30000.00         NaN   
+5635  POSTDOC RES ASSOC            No Info         NaN         NaN   
+5636  POSTDOC RES ASSOC            No Info    30000.00         NaN   
+5637  POSTDOC RES ASSOC            No Info    30000.00         NaN   
+5638          ASSOC DIR            No Info         NaN         NaN   
+5639          ASSOC DIR            No Info         NaN         NaN   
+5640          ASSOC DIR            No Info    50000.00         NaN   
+5641          ASSOC DIR            No Info    51452.19    52867.13   
+5642          ASSOC DIR            No Info    51572.06    52990.29   
+5643          ASSOC DIR            No Info    52750.32    54200.95   
+5644  POSTDOC RES ASSOC            No Info    41233.00         NaN   
+5645  POSTDOC RES ASSOC            No Info         NaN         NaN   
+5646  POSTDOC RES ASSOC            No Info    41233.00    42470.00   
+5647  POSTDOC RES ASSOC            No Info    41233.00         NaN   
+5648  POSTDOC RES ASSOC            No Info         NaN         NaN   
+5649  POSTDOC RES ASSOC            No Info    41233.00    42470.00   
+5650  POSTDOC RES ASSOC            No Info    41233.00    42470.00   
+5651  POSTDOC RES ASSOC            No Info    41233.00    42470.00   
+5652  POSTDOC RES ASSOC            No Info         NaN         NaN   
+5653          ASSOC DIR            No Info         NaN         NaN   
+5654         SR RES SCI            No Info   121702.13         NaN   
+5655    CLIN ASSOC PROF            No Info   113100.00   115928.00   
+5656          ASSOC DIR            No Info   104274.00   107141.54   
+5657          ASSOC DIR            No Info   110973.00   114024.76   
+5658          ASSOC DIR            No Info         NaN         NaN   
+5659          ASSOC DIR            No Info         NaN         NaN   
+5660          ASSOC DIR            No Info         NaN    87864.00   
+
+      Salary2015  Salary2016  Salary2017  
+0            NaN    41683.00         NaN  
+1            NaN         NaN         NaN  
+2      115726.00   115726.00   134235.00  
+3       94920.16    94920.16    96534.16  
+4      111045.00   111045.00   117311.00  
+5            NaN         NaN         NaN  
+6      118617.08   118617.08   120705.08  
+7      104000.00   104000.00   105560.00  
+8      112000.00   112000.00   114016.00  
+9      110000.00   110000.00   112750.00  
+10     147337.00         NaN         NaN  
+11      90548.00    90548.00    95075.00  
+12     105784.00   105784.00   118886.00  
+13           NaN         NaN   155000.00  
+14     142083.00   142083.00   144640.00  
+15     103840.08   103840.08   106436.08  
+16           NaN         NaN   140000.00  
+17     147203.00   147203.00   167203.00  
+18           NaN         NaN         NaN  
+19     190966.00   190966.00   194785.00  
+20     163951.00   163951.00   167263.00  
+21     106901.00   106901.00         NaN  
+22     102082.00   102082.00   102848.00  
+23      99973.00    99973.00   109647.00  
+24     114353.00   114353.00   117212.00  
+25      97755.00    97755.00    99515.00  
+26     104000.00   104000.00   105560.00  
+27      97180.08    97180.08    98929.08  
+28     119347.00   119347.00   121495.00  
+29     107515.00   109515.00   112910.00  
+{\ldots}          {\ldots}         {\ldots}         {\ldots}  
+5631    67998.50         NaN         NaN  
+5632         NaN         NaN    31000.00  
+5633    31000.00         NaN         NaN  
+5634         NaN         NaN         NaN  
+5635         NaN    31000.00         NaN  
+5636         NaN         NaN         NaN  
+5637         NaN         NaN         NaN  
+5638    55000.00         NaN         NaN  
+5639    55000.00    55000.00    56237.50  
+5640         NaN         NaN         NaN  
+5641    56567.83    56567.83    57840.61  
+5642    56699.61         NaN         NaN  
+5643    55555.97    55555.97    56667.09  
+5644         NaN         NaN         NaN  
+5645         NaN         NaN    47476.00  
+5646    43744.00         NaN         NaN  
+5647         NaN         NaN         NaN  
+5648    43744.00         NaN         NaN  
+5649         NaN         NaN         NaN  
+5650         NaN         NaN         NaN  
+5651         NaN         NaN         NaN  
+5652         NaN    50000.00    51000.00  
+5653         NaN         NaN    78000.00  
+5654         NaN         NaN         NaN  
+5655   115928.00         NaN         NaN  
+5656         NaN         NaN         NaN  
+5657   116875.38   116875.38   119212.89  
+5658         NaN         NaN    82000.00  
+5659         NaN    90000.00    91800.00  
+5660    90060.60    90060.60         NaN  
+
+[5661 rows x 11 columns]
+
+    \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}3}]:} \PY{k}{def} \PY{n+nf}{getSalary}\PY{p}{(}\PY{n}{department}\PY{p}{,} \PY{n}{campus}\PY{p}{,} \PY{n}{year\PYZus{}col}\PY{p}{)}\PY{p}{:}
@@ -346,77 +615,122 @@ campus}\label{q4-list-the-median-salary-of-all-departmentall-job-in-a-campus}
             \PY{k}{return} \PY{n}{salary}
         
         
-        \PY{k}{def} \PY{n+nf}{createFigHist}\PY{p}{(}\PY{n}{departments}\PY{p}{,} \PY{n}{campus}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Urbana\PYZhy{}Champaign}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year} \PY{o}{=} \PY{l+m+mi}{2017}\PY{p}{)}\PY{p}{:}
-            \PY{c+c1}{\PYZsh{} define year column}
-            \PY{k}{assert} \PY{n}{year} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{2013} \PY{o+ow}{and} \PY{n}{year} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{2017}
-            \PY{n}{year\PYZus{}col} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Salary}\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{year}\PY{p}{)}
+        \PY{k}{def} \PY{n+nf}{createFigHist}\PY{p}{(}\PY{n}{departments}\PY{p}{,} \PY{n}{campus}\PY{p}{,} \PY{n}{year} \PY{o}{=} \PY{l+m+mi}{2017}\PY{p}{)}\PY{p}{:}
+            \PY{k}{assert} \PY{n+nb}{len}\PY{p}{(}\PY{n}{departments}\PY{p}{)} \PY{o}{==} \PY{n+nb}{len}\PY{p}{(}\PY{n}{campus}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{} if year is a int, cast to a list}
+            \PY{k}{if} \PY{n+nb}{type}\PY{p}{(}\PY{n}{year}\PY{p}{)} \PY{o+ow}{is} \PY{n+nb}{int}\PY{p}{:}
+                \PY{n}{year} \PY{o}{=} \PY{p}{[}\PY{n}{year}\PY{p}{]}\PY{o}{*}\PY{n+nb}{len}\PY{p}{(}\PY{n}{campus}\PY{p}{)}
+            \PY{k}{else}\PY{p}{:}
+                \PY{k}{assert} \PY{n+nb}{type}\PY{p}{(}\PY{n}{year}\PY{p}{)} \PY{o+ow}{is} \PY{n+nb}{list}
+                \PY{k}{assert} \PY{n+nb}{len}\PY{p}{(}\PY{n}{year}\PY{p}{)} \PY{o}{==} \PY{n+nb}{len}\PY{p}{(}\PY{n}{campus}\PY{p}{)}
+                
             \PY{c+c1}{\PYZsh{} get the salary}
             \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{p}{]}
-            \PY{k}{for} \PY{n}{dep} \PY{o+ow}{in} \PY{n}{departments}\PY{p}{:}
-                \PY{n}{salary} \PY{o}{=} \PY{n}{getSalary}\PY{p}{(}\PY{n}{dep}\PY{p}{,} \PY{n}{campus}\PY{p}{,} \PY{n}{year\PYZus{}col}\PY{p}{)}
+            \PY{k}{for} \PY{n}{idx} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{departments}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                \PY{n}{year\PYZus{}col} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Salary}\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{year}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}
+                \PY{n}{salary} \PY{o}{=} \PY{n}{getSalary}\PY{p}{(}\PY{n}{departments}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,} \PY{n}{campus}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,} \PY{n}{year\PYZus{}col}\PY{p}{)}
                 \PY{n}{data}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Histogram}\PY{p}{(}
                     \PY{n}{x}\PY{o}{=}\PY{n}{salary}\PY{p}{,}
                     \PY{n}{histnorm}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{percent}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
-                    \PY{n}{name}\PY{o}{=}\PY{n}{dep}\PY{p}{,}
+                    \PY{n}{name}\PY{o}{=}\PY{n}{departments}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,}
                     \PY{n}{opacity}\PY{o}{=}\PY{l+m+mf}{0.75}
                 \PY{p}{)}\PY{p}{)}
         
-        
             \PY{n}{layout} \PY{o}{=} \PY{n}{Layout}\PY{p}{(}
-                \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ VS }\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{departments}\PY{p}{)}\PY{p}{,}
+                \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Salary Range of Faculty in }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ \PYZam{} }\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{departments}\PY{p}{)}\PY{p}{)}\PY{p}{,}
                 \PY{n}{xaxis}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
                     \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Salary}\PY{l+s+s1}{\PYZsq{}}
                 \PY{p}{)}\PY{p}{,}
                 \PY{n}{yaxis}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
-                    \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Percentage}\PY{l+s+s1}{\PYZsq{}}
+                    \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Percentage of Faculty}\PY{l+s+s1}{\PYZsq{}}
                 \PY{p}{)}\PY{p}{,}
-                \PY{c+c1}{\PYZsh{}bargap=0.2,}
+                \PY{n}{bargap}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,}
                 \PY{n}{bargroupgap}\PY{o}{=}\PY{l+m+mf}{0.1}
             \PY{p}{)}
             \PY{n}{fig} \PY{o}{=} \PY{n}{Figure}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{data}\PY{p}{,} \PY{n}{layout}\PY{o}{=}\PY{n}{layout}\PY{p}{)}
             \PY{k}{return} \PY{n}{fig}
         
         \PY{k}{def} \PY{n+nf}{createFigDiffDepAndCampus}\PY{p}{(}\PY{n}{departments}\PY{p}{,} \PY{n}{campus}\PY{p}{,} \PY{n}{year}\PY{o}{=}\PY{l+m+mi}{2017}\PY{p}{)}\PY{p}{:}
-            \PY{k}{assert} \PY{n}{year} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{2013} \PY{o+ow}{and} \PY{n}{year} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{2017}
             \PY{k}{assert} \PY{n+nb}{len}\PY{p}{(}\PY{n}{departments}\PY{p}{)} \PY{o}{==} \PY{n+nb}{len}\PY{p}{(}\PY{n}{campus}\PY{p}{)}
-            \PY{n}{year\PYZus{}col} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Salary}\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{year}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{} if year is a int, cast to a list}
+            \PY{k}{if} \PY{n+nb}{type}\PY{p}{(}\PY{n}{year}\PY{p}{)} \PY{o+ow}{is} \PY{n+nb}{int}\PY{p}{:}
+                \PY{n}{year} \PY{o}{=} \PY{p}{[}\PY{n}{year}\PY{p}{]}\PY{o}{*}\PY{n+nb}{len}\PY{p}{(}\PY{n}{campus}\PY{p}{)}
+            \PY{k}{else}\PY{p}{:}
+                \PY{k}{assert} \PY{n+nb}{type}\PY{p}{(}\PY{n}{year}\PY{p}{)} \PY{o+ow}{is} \PY{n+nb}{list}
+                \PY{k}{assert} \PY{n+nb}{len}\PY{p}{(}\PY{n}{year}\PY{p}{)} \PY{o}{==} \PY{n+nb}{len}\PY{p}{(}\PY{n}{campus}\PY{p}{)}
+                
             \PY{c+c1}{\PYZsh{} get the salary}
-            \PY{n}{salary} \PY{o}{=} \PY{p}{[}\PY{p}{]}
-            \PY{k}{for} \PY{n}{idx} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{departments}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                \PY{n}{salary}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{getSalary}\PY{p}{(}\PY{n}{departments}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,} \PY{n}{campus}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,} \PY{n}{year\PYZus{}col}\PY{p}{)}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-            \PY{c+c1}{\PYZsh{} parameters used to create graph}
+            \PY{n}{populationSize} \PY{o}{=} \PY{p}{[}\PY{p}{]}
             \PY{n}{labels} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+            \PY{n}{medians} \PY{o}{=} \PY{p}{[}\PY{p}{]}
             \PY{k}{for} \PY{n}{idx} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{departments}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-                \PY{n}{labels}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{campus}\PY{p}{[}\PY{n}{idx}\PY{p}{]} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ \PYZhy{} }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n}{departments}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}
-            \PY{n}{data} \PY{o}{=} \PY{n}{Pie}\PY{p}{(}\PY{n}{labels}\PY{o}{=}\PY{n}{labels}\PY{p}{,} \PY{n}{values}\PY{o}{=}\PY{n}{salary}\PY{p}{,}
-                   \PY{n}{hoverinfo}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{label+percent}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{textinfo}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{value}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} 
-                   \PY{n}{textfont}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}\PY{n}{size}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}
+                \PY{n}{year\PYZus{}col} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Salary}\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{year}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}
+                \PY{n}{salary} \PY{o}{=} \PY{n}{getSalary}\PY{p}{(}\PY{n}{departments}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,} \PY{n}{campus}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,} \PY{n}{year\PYZus{}col}\PY{p}{)}
+                \PY{n}{populationSize}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{salary}\PY{p}{)}\PY{p}{)}
+                \PY{n}{median} \PY{o}{=} \PY{n}{salary}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}
+                \PY{n}{medians}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n+nb}{int}\PY{p}{(}\PY{n}{median}\PY{p}{)}\PY{p}{)}
+                \PY{n}{labels}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ \PYZhy{} }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{campus}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{,} \PY{n}{departments}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{} parameters used to create graph}
+                
+            \PY{n}{population\PYZus{}bar} \PY{o}{=} \PY{n}{Bar}\PY{p}{(}
+                    \PY{n}{x} \PY{o}{=} \PY{n}{labels}\PY{p}{,}
+                    \PY{n}{y} \PY{o}{=} \PY{n}{populationSize}\PY{p}{,}  
+                    \PY{n}{name}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{population size}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}       
+                    \PY{n}{opacity}\PY{o}{=}\PY{l+m+mf}{0.75}\PY{p}{,}    
                    \PY{p}{)}
+            \PY{n}{salary\PYZus{}scatter} \PY{o}{=} \PY{n}{Scatter}\PY{p}{(}
+                    \PY{n}{x} \PY{o}{=} \PY{n}{labels}\PY{p}{,}
+                    \PY{n}{y} \PY{o}{=} \PY{n}{medians}\PY{p}{,}
+                    \PY{n}{name}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{median salary}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+                    \PY{c+c1}{\PYZsh{} marker + lines}
+                    \PY{n}{mode} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lines+markers}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                    \PY{n}{line} \PY{o}{=} \PY{n+nb}{dict}\PY{p}{(}
+                        \PY{n}{width} \PY{o}{=} \PY{l+m+mi}{4}\PY{p}{,}\PY{p}{)}\PY{p}{,}
+                    \PY{n}{yaxis}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}           
+                    \PY{n}{opacity}\PY{o}{=}\PY{l+m+mf}{0.75}
+        \PY{p}{)}
             \PY{n}{layout} \PY{o}{=} \PY{n}{Layout}\PY{p}{(}
-                \PY{n}{title}\PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Median Salary Comparasion Across Department}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+                \PY{n}{title}\PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Number of Faculty and Median Salary in the Dataset}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+                \PY{n}{xaxis}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                    \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Department}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{p}{)}\PY{p}{,}
+                \PY{n}{yaxis}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                    \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Number of Faculty}\PY{l+s+s1}{\PYZsq{}}
+                \PY{p}{)}\PY{p}{,}
+                \PY{n}{yaxis2}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                    \PY{n}{title}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Median Salary}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                    \PY{n}{overlaying}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                    \PY{n}{side}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{right}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                    
+                    \PY{c+c1}{\PYZsh{} label color}
+                    \PY{n}{titlefont}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                        \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}ff7f0e}\PY{l+s+s1}{\PYZsq{}}
+                    \PY{p}{)}\PY{p}{,}
+                    \PY{n}{tickfont}\PY{o}{=}\PY{n+nb}{dict}\PY{p}{(}
+                        \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}ff7f0e}\PY{l+s+s1}{\PYZsq{}}
+                    \PY{p}{)}\PY{p}{,}
+                \PY{p}{)}\PY{p}{,}
+                \PY{n}{margin}\PY{o}{=}\PY{n}{Margin}\PY{p}{(}
+                 \PY{n}{b}\PY{o}{=}\PY{l+m+mi}{160}\PY{p}{,}
+                \PY{p}{)}\PY{p}{,}
             \PY{p}{)}
-            \PY{n}{fig} \PY{o}{=} \PY{n}{Figure}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{p}{[}\PY{n}{data}\PY{p}{]}\PY{p}{,} \PY{n}{layout}\PY{o}{=}\PY{n}{layout}\PY{p}{)}
+            \PY{n}{fig} \PY{o}{=} \PY{n}{Figure}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{p}{[}\PY{n}{population\PYZus{}bar}\PY{p}{,} \PY{n}{salary\PYZus{}scatter}\PY{p}{]}\PY{p}{,} \PY{n}{layout}\PY{o}{=}\PY{n}{layout}\PY{p}{)}
             \PY{k}{return} \PY{n}{fig}
             
-        \PY{k}{def} \PY{n+nf}{createFigListAllDepSalary}\PY{p}{(}\PY{n}{campus} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Urbana\PYZhy{}Champaign}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year} \PY{o}{=} \PY{l+m+mi}{2017}\PY{p}{,} \PY{n}{showJob} \PY{o}{=} \PY{k+kc}{False}\PY{p}{,} \PY{n}{top} \PY{o}{=} \PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
-            \PY{k}{assert} \PY{n}{year} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{2013} \PY{o+ow}{and} \PY{n}{year} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{2017}
+        \PY{k}{def} \PY{n+nf}{createAllDepSalaryTrace}\PY{p}{(}\PY{n}{campus} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Urbana\PYZhy{}Champaign}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year} \PY{o}{=} \PY{l+m+mi}{2017}\PY{p}{,} \PY{n}{top} \PY{o}{=} \PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
             \PY{n}{year\PYZus{}col} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Salary}\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{year}\PY{p}{)}
             
-            \PY{k}{if} \PY{n}{showJob}\PY{p}{:}
-                \PY{c+c1}{\PYZsh{} get the median salary of each job \PYZam{} department}
-                \PY{n}{gb} \PY{o}{=} \PY{n}{SalaryOverYears}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{SalaryOverYears}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Campus}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{campus}\PY{p}{,} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Department}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{JobTitle}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{year\PYZus{}col}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}\PYZbs{}
-                        \PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Department}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{JobTitle}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-                \PY{n}{sorted\PYZus{}depMedian} \PY{o}{=} \PY{n}{gb}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{n}{year\PYZus{}col}\PY{p}{,} \PY{n}{ascending} \PY{o}{=} \PY{k+kc}{False}\PY{p}{)}
-                \PY{n}{x} \PY{o}{=} \PY{n}{sorted\PYZus{}depMedian}\PY{p}{[}\PY{n}{year\PYZus{}col}\PY{p}{]}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
-                \PY{n}{y} \PY{o}{=} \PY{p}{[}\PY{n}{dj}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ in }\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n}{dj}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{k}{for} \PY{n}{dj} \PY{o+ow}{in} \PY{n}{sorted\PYZus{}depMedian}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}\PY{p}{]}
-                
-            \PY{k}{else}\PY{p}{:}
-                \PY{c+c1}{\PYZsh{} get the median salary of each department}
-                \PY{n}{gb} \PY{o}{=} \PY{n}{SalaryOverYears}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{SalaryOverYears}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Campus}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{campus}\PY{p}{,} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Department}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year\PYZus{}col}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}\PYZbs{}
-                            \PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Department}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-                \PY{n}{sorted\PYZus{}depMedian} \PY{o}{=} \PY{n}{gb}\PY{o}{.}\PY{n}{median}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{n}{year\PYZus{}col}\PY{p}{,} \PY{n}{ascending} \PY{o}{=} \PY{k+kc}{False}\PY{p}{)}
-                \PY{n}{x} \PY{o}{=} \PY{n}{sorted\PYZus{}depMedian}\PY{p}{[}\PY{n}{year\PYZus{}col}\PY{p}{]}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
-                \PY{n}{y} \PY{o}{=} \PY{n}{sorted\PYZus{}depMedian}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{} get the median salary of each department}
+            \PY{n}{gb} \PY{o}{=} \PY{n}{SalaryOverYears}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{SalaryOverYears}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Campus}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{campus}\PY{p}{,} \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Department}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year\PYZus{}col}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}\PYZbs{}
+                        \PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Department}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+            \PY{n}{agg\PYZus{}df} \PY{o}{=} \PY{n}{gb}\PY{o}{.}\PY{n}{agg}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{median}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{count}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+            \PY{n}{agg\PYZus{}df} \PY{o}{=} \PY{n}{agg\PYZus{}df}\PY{p}{[}\PY{n}{agg\PYZus{}df}\PY{p}{[}\PY{p}{(}\PY{n}{year\PYZus{}col}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{count}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]} \PY{o}{\PYZgt{}} \PY{l+m+mi}{5}\PY{p}{]}
+            \PY{n}{sorted\PYZus{}depMedian} \PY{o}{=} \PY{n}{agg\PYZus{}df}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{(}\PY{n}{year\PYZus{}col}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{median}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{ascending} \PY{o}{=} \PY{k+kc}{False}\PY{p}{)}
+            \PY{n}{x} \PY{o}{=} \PY{n}{sorted\PYZus{}depMedian}\PY{p}{[}\PY{p}{(}\PY{n}{year\PYZus{}col}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{median}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+            \PY{n}{y} \PY{o}{=} \PY{n}{sorted\PYZus{}depMedian}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
                 
             \PY{c+c1}{\PYZsh{} select top subset elements}
             \PY{k}{if} \PY{n}{top}\PY{p}{:}
@@ -425,7 +739,61 @@ campus}\label{q4-list-the-median-salary-of-all-departmentall-job-in-a-campus}
         
             \PY{n}{x}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
             \PY{n}{y}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
-            \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{n}{Bar}\PY{p}{(}
+            \PY{k}{return} \PY{n}{Bar}\PY{p}{(}
+                \PY{n}{y}\PY{o}{=}\PY{n}{y}\PY{p}{,}
+                \PY{n}{x}\PY{o}{=}\PY{n}{x}\PY{p}{,}
+                \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Median Salary}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{n}{orientation} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{h}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{n}{opacity}\PY{o}{=}\PY{l+m+mf}{0.75}
+            \PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{createFigListAllDepSalary}\PY{p}{(}\PY{n}{campus} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Urbana\PYZhy{}Champaign}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year} \PY{o}{=} \PY{l+m+mi}{2017}\PY{p}{,} \PY{n}{top} \PY{o}{=} \PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
+            \PY{k}{assert} \PY{n}{year} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{l+m+mi}{2013} \PY{o+ow}{and} \PY{n}{year} \PY{o}{\PYZlt{}}\PY{o}{=} \PY{l+m+mi}{2017}
+            
+            \PY{n}{trace1} \PY{o}{=} \PY{n}{createAllDepSalaryTrace}\PY{p}{(}\PY{n}{top}\PY{o}{=}\PY{n}{top}\PY{p}{)}
+            \PY{n}{trace2} \PY{o}{=} \PY{n}{createAllDepSalaryTrace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Chicago}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year}\PY{p}{,} \PY{n}{top}\PY{o}{=}\PY{n}{top}\PY{p}{)}
+            \PY{n}{trace3} \PY{o}{=} \PY{n}{createAllDepSalaryTrace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Springfield}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year}\PY{p}{,} \PY{n}{top}\PY{o}{=}\PY{n}{top}\PY{p}{)}
+        
+            \PY{n}{fig} \PY{o}{=} \PY{n}{tls}\PY{o}{.}\PY{n}{make\PYZus{}subplots}\PY{p}{(}\PY{n}{rows}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{cols}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{shared\PYZus{}xaxes}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{vertical\PYZus{}spacing} \PY{o}{=} \PY{l+m+mf}{0.05}\PY{p}{,}\PYZbs{}
+                      \PY{n}{subplot\PYZus{}titles}\PY{o}{=}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Median Salary of Faculty Members in Urbana\PYZhy{}Champaign}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{)}\PY{p}{,} \PYZbs{}
+                                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Median Salary of Faculty Members in Chicago}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{)}\PY{p}{,} \PYZbs{}
+                                      \PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Median Salary of Faculty Members in Springfield}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+        
+            \PY{n}{fig}\PY{o}{.}\PY{n}{append\PYZus{}trace}\PY{p}{(}\PY{n}{trace1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+            \PY{n}{fig}\PY{o}{.}\PY{n}{append\PYZus{}trace}\PY{p}{(}\PY{n}{trace2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+            \PY{n}{fig}\PY{o}{.}\PY{n}{append\PYZus{}trace}\PY{p}{(}\PY{n}{trace3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+        
+            \PY{n}{fig}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{layout}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{update}\PY{p}{(} \PYZbs{}
+                \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{1200}\PY{p}{,} \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{600}\PY{p}{,}
+                \PY{n}{margin}\PY{o}{=}\PY{n}{Margin}\PY{p}{(}\PYZbs{}
+                    \PY{n}{l}\PY{o}{=}\PY{l+m+mi}{180}\PY{p}{,} \PYZbs{}
+                    \PY{n}{pad}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,}
+                    \PY{p}{)}\PY{p}{,}\PYZbs{}
+                \PY{n}{showlegend}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}\PY{p}{)}
+            \PY{k}{return} \PY{n}{fig}
+                
+        \PY{k}{def} \PY{n+nf}{createAllDepJobSalaryTrace}\PY{p}{(}\PY{n}{campus} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Urbana\PYZhy{}Champaign}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year} \PY{o}{=} \PY{l+m+mi}{2017}\PY{p}{,} \PY{n}{job} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ASST PROF}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{top} \PY{o}{=} \PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
+            \PY{n}{year\PYZus{}col} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Salary}\PY{l+s+s2}{\PYZdq{}} \PY{o}{+} \PY{n+nb}{str}\PY{p}{(}\PY{n}{year}\PY{p}{)}
+            
+            \PY{c+c1}{\PYZsh{} get the median salary of each job \PYZam{} departmentdepartment}
+            \PY{n}{gb} \PY{o}{=} \PY{n}{SalaryOverYears}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PYZbs{}
+                     \PY{p}{(}\PY{n}{SalaryOverYears}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Campus}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{campus}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{SalaryOverYears}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{JobTitle}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{==} \PY{n}{job}\PY{p}{)}\PY{p}{,} \PYZbs{}
+                     \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Department}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{year\PYZus{}col}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}\PYZbs{}
+                    \PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Department}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+            \PY{n}{agg\PYZus{}df} \PY{o}{=} \PY{n}{gb}\PY{o}{.}\PY{n}{agg}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{median}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{count}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+            \PY{n}{agg\PYZus{}df} \PY{o}{=} \PY{n}{agg\PYZus{}df}\PY{p}{[}\PY{n}{agg\PYZus{}df}\PY{p}{[}\PY{p}{(}\PY{n}{year\PYZus{}col}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{count}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]} \PY{o}{\PYZgt{}} \PY{l+m+mi}{2}\PY{p}{]}
+            \PY{n}{sorted\PYZus{}depMedian} \PY{o}{=} \PY{n}{agg\PYZus{}df}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{p}{(}\PY{n}{year\PYZus{}col}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{median}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{ascending} \PY{o}{=} \PY{k+kc}{False}\PY{p}{)}
+            \PY{n}{x} \PY{o}{=} \PY{n}{sorted\PYZus{}depMedian}\PY{p}{[}\PY{p}{(}\PY{n}{year\PYZus{}col}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{median}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+            \PY{n}{y} \PY{o}{=} \PY{n}{sorted\PYZus{}depMedian}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{tolist}\PY{p}{(}\PY{p}{)}
+        
+            \PY{c+c1}{\PYZsh{} select top subset elements}
+            \PY{k}{if} \PY{n}{top}\PY{p}{:}
+                \PY{n}{x} \PY{o}{=} \PY{n}{x}\PY{p}{[}\PY{p}{:}\PY{n}{top}\PY{p}{]}
+                \PY{n}{y} \PY{o}{=} \PY{n}{y}\PY{p}{[}\PY{p}{:}\PY{n}{top}\PY{p}{]}
+        
+            \PY{n}{x}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+            \PY{n}{y}\PY{o}{.}\PY{n}{reverse}\PY{p}{(}\PY{p}{)}
+            \PY{k}{return} \PY{n}{Bar}\PY{p}{(}
                 \PY{n}{y}\PY{o}{=}\PY{n}{y}\PY{p}{,}
                 \PY{n}{x}\PY{o}{=}\PY{n}{x}\PY{p}{,}
                 \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Median Salary}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
@@ -438,85 +806,315 @@ campus}\label{q4-list-the-median-salary-of-all-departmentall-job-in-a-campus}
                     \PY{p}{)}
                 \PY{p}{)}\PY{p}{,}
                 \PY{n}{opacity}\PY{o}{=}\PY{l+m+mf}{0.75}
-            \PY{p}{)}\PY{p}{]}
-            \PY{n}{layout} \PY{o}{=} \PY{n}{Layout}\PY{p}{(}
-                \PY{n}{title}\PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Median Salary of Each Department in }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{campus}\PY{p}{)}\PY{p}{,}
-                \PY{n}{margin}\PY{o}{=}\PY{n}{Margin}\PY{p}{(}
-                \PY{n}{l}\PY{o}{=}\PY{l+m+mi}{360}\PY{p}{,}
-                \PY{p}{)}\PY{p}{,}
             \PY{p}{)}
-            \PY{n}{fig} \PY{o}{=} \PY{n}{Figure}\PY{p}{(}\PY{n}{data}\PY{o}{=}\PY{n}{data}\PY{p}{,} \PY{n}{layout}\PY{o}{=}\PY{n}{layout}\PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{createFigListAllDepJobSalary}\PY{p}{(}\PY{n}{year} \PY{o}{=} \PY{l+m+mi}{2017}\PY{p}{,} \PY{n}{job} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ASST PROF}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{top} \PY{o}{=} \PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
+            \PY{n}{trace1} \PY{o}{=} \PY{n}{createAllDepJobSalaryTrace}\PY{p}{(}\PY{n}{top}\PY{o}{=}\PY{n}{top}\PY{p}{)}
+            \PY{n}{trace2} \PY{o}{=} \PY{n}{createAllDepJobSalaryTrace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Chicago}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{p}{,} \PY{n}{top}\PY{o}{=}\PY{n}{top}\PY{p}{)}
+            \PY{n}{trace3} \PY{o}{=} \PY{n}{createAllDepJobSalaryTrace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Springfield}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{p}{,} \PY{n}{top}\PY{o}{=}\PY{n}{top}\PY{p}{)}
+        
+            \PY{n}{fig} \PY{o}{=} \PY{n}{tls}\PY{o}{.}\PY{n}{make\PYZus{}subplots}\PY{p}{(}\PY{n}{rows}\PY{o}{=}\PY{l+m+mi}{3}\PY{p}{,} \PY{n}{cols}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{shared\PYZus{}xaxes}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{vertical\PYZus{}spacing} \PY{o}{=} \PY{l+m+mf}{0.05}\PY{p}{,} \PYZbs{}
+                                  \PY{n}{subplot\PYZus{}titles}\PY{o}{=}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Median Salary of }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ in Urbana\PYZhy{}Champaign}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{p}{)}\PY{p}{,} \PYZbs{}
+                                                  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Median Salary of }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ in Chicago}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{p}{)}\PY{p}{,} \PYZbs{}
+                                                  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Median Salary of }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ in Springfield}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+        
+            \PY{n}{fig}\PY{o}{.}\PY{n}{append\PYZus{}trace}\PY{p}{(}\PY{n}{trace1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+            \PY{n}{fig}\PY{o}{.}\PY{n}{append\PYZus{}trace}\PY{p}{(}\PY{n}{trace2}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+            \PY{n}{fig}\PY{o}{.}\PY{n}{append\PYZus{}trace}\PY{p}{(}\PY{n}{trace3}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+        
+            \PY{n}{fig}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{layout}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{update}\PY{p}{(} \PYZbs{}
+                \PY{n}{height}\PY{o}{=}\PY{l+m+mi}{1200}\PY{p}{,} \PY{n}{width}\PY{o}{=}\PY{l+m+mi}{600}\PY{p}{,}
+                \PY{n}{margin}\PY{o}{=}\PY{n}{Margin}\PY{p}{(}\PYZbs{}
+                    \PY{n}{l}\PY{o}{=}\PY{l+m+mi}{180}\PY{p}{,} \PYZbs{}
+                    \PY{n}{pad}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,}
+                    \PY{p}{)}\PY{p}{,}\PYZbs{}
+                \PY{n}{showlegend}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,}
+                \PY{p}{)}
             \PY{k}{return} \PY{n}{fig}
-                
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} call the create fig function}
-        \PY{n}{fig} \PY{o}{=} \PY{n}{createFigHist}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Information Sciences}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{History}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
-        \PY{n}{py}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{salaryHist3}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} define widgets}
+        \PY{k}{def} \PY{n+nf}{createIntSliderForYear}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{n}{widgets}\PY{o}{.}\PY{n}{IntSlider}\PY{p}{(}
+                \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{2017}\PY{p}{,}
+                \PY{n+nb}{min}\PY{o}{=}\PY{l+m+mi}{2013}\PY{p}{,}
+                \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mi}{2017}\PY{p}{,}
+                \PY{n}{step}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}
+                \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Year:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{n}{continuous\PYZus{}update} \PY{o}{=} \PY{k+kc}{False}
+            \PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{createTextBoxForDep}\PY{p}{(}\PY{n}{v}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Mathematics}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{n}{widgets}\PY{o}{.}\PY{n}{Text}\PY{p}{(}
+                \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Department:   }\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{n}{value}\PY{o}{=}\PY{n}{v}\PY{p}{,}
+            \PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{createDropDownForCampus}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{n}{widgets}\PY{o}{.}\PY{n}{Dropdown}\PY{p}{(}
+                \PY{n}{options}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Chicago}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Springfield}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Urbana\PYZhy{}Champaign}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,}
+                \PY{n}{value}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Urbana\PYZhy{}Champaign}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Campus:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+            \PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{createBundle}\PY{p}{(}\PY{n}{v}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Mathematics}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{p}{[} \PY{n}{createDropDownForCampus}\PY{p}{(}\PY{p}{)}\PY{p}{,} \PY{n}{createTextBoxForDep}\PY{p}{(}\PY{n}{v}\PY{p}{)}\PY{p}{,} \PY{n}{createIntSliderForYear}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+        
+        
+        \PY{c+c1}{\PYZsh{} for job select widget}
+        \PY{k}{def} \PY{n+nf}{createDropDownForJobs}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{n}{jobs} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ASSOC PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ASST PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{LECTURER}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ASSOC DIR}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+               \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CLIN ASST PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SR LECTURER}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RES SCI}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RES ASST PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+               \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SR RES SCI}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{POSTDOC RES ASSOC}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CLIN PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+               \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ASSOC PROF UNIV LIBRARY}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ASST PROF UNIV LIBRARY}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DEAN}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+               \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{JL DOOB RES ASST PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CLIN ASSOC PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{VST ASST PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+               \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RES ASSOC PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ASST DEAN}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RES PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PROF (RT)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+            \PY{k}{return} \PY{n}{widgets}\PY{o}{.}\PY{n}{Dropdown}\PY{p}{(}
+                \PY{n}{options}\PY{o}{=}\PY{n}{jobs}\PY{p}{,}
+                \PY{n}{value}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ASST PROF}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Job Title:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+            \PY{p}{)}
+        
+        
+        \PY{k}{def} \PY{n+nf}{createIntTop}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{n}{widgets}\PY{o}{.}\PY{n}{IntText}\PY{p}{(}
+                \PY{n}{value}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{,}
+                \PY{n}{description}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Top X:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+                \PY{n}{disabled}\PY{o}{=}\PY{k+kc}{False}
+            \PY{p}{)}
 \end{Verbatim}
 
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}4}]:} <plotly.tools.PlotlyDisplay object>
-\end{Verbatim}
-            
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{fig} \PY{o}{=} \PY{n}{createFigHist}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Information Sciences}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{year} \PY{o}{=} \PY{l+m+mi}{2017}\PY{p}{)}
-        \PY{n}{py}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{salaryHistIS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c+c1}{\PYZsh{} fig = createFigHist([\PYZsq{}Information Sciences\PYZsq{}], year = 2017)}
+        \PY{c+c1}{\PYZsh{} salaryHist = py.iplot(fig, filename=\PYZsq{}salaryHist\PYZsq{})}
+        \PY{c+c1}{\PYZsh{} salaryHist\PYZus{}url = salaryHist.resource}
+        
+        \PY{c+c1}{\PYZsh{} import fig}
+        \PY{n}{salaryHist\PYZus{}url} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://plot.ly/\PYZti{}wangqiwen/22/salary\PYZhy{}range\PYZhy{}of\PYZhy{}faculty\PYZhy{}in\PYZhy{}information\PYZhy{}sciences/}\PY{l+s+s2}{\PYZdq{}}
+        \PY{c+c1}{\PYZsh{} Assign an emptry graph widget with two traces}
+        \PY{n}{g\PYZus{}salary\PYZus{}dist} \PY{o}{=} \PY{n}{GraphWidget}\PY{p}{(}\PY{n}{salaryHist\PYZus{}url}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} the widget for the distribution of the salary}
+        \PY{n}{salary\PYZus{}dist\PYZus{}year\PYZus{}container} \PY{o}{=} \PY{n}{createIntSliderForYear}\PY{p}{(}\PY{p}{)}
+        
+        \PY{n}{salary\PYZus{}dist\PYZus{}department\PYZus{}one\PYZus{}textbox} \PY{o}{=} \PY{n}{createTextBoxForDep}\PY{p}{(}\PY{p}{)}
+        
+        \PY{n}{salary\PYZus{}dist\PYZus{}campus\PYZus{}dropdown} \PY{o}{=} \PY{n}{createDropDownForCampus}\PY{p}{(}\PY{p}{)}
+        
+        
+        \PY{k}{def} \PY{n+nf}{response\PYZus{}salary\PYZus{}dist}\PY{p}{(}\PY{n}{change}\PY{p}{)}\PY{p}{:}
+            \PY{n}{year} \PY{o}{=} \PY{n}{salary\PYZus{}dist\PYZus{}year\PYZus{}container}\PY{o}{.}\PY{n}{value}
+            \PY{n}{department} \PY{o}{=} \PY{p}{[}\PY{n}{salary\PYZus{}dist\PYZus{}department\PYZus{}one\PYZus{}textbox}\PY{o}{.}\PY{n}{value}\PY{p}{]}
+            \PY{n}{campus} \PY{o}{=} \PY{p}{[}\PY{n}{salary\PYZus{}dist\PYZus{}campus\PYZus{}dropdown}\PY{o}{.}\PY{n}{value}\PY{p}{]}
+            \PY{n}{fig} \PY{o}{=} \PY{n}{createFigHist}\PY{p}{(}\PY{n}{department}\PY{p}{,} \PY{n}{campus}\PY{o}{=}\PY{n}{campus}\PY{p}{,} \PY{n}{year}\PY{o}{=}\PY{n}{year}\PY{p}{)}
+            \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{fig}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{x}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}\PY{p}{:}
+                \PY{n}{g\PYZus{}salary\PYZus{}dist}\PY{o}{.}\PY{n}{restyle}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n+nb}{list}\PY{p}{(}\PY{n}{fig}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{name}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{fig}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{name}\PY{p}{\PYZcb{}}\PY{p}{)}
+                \PY{n}{g\PYZus{}salary\PYZus{}dist}\PY{o}{.}\PY{n}{relayout}\PY{p}{(}\PY{n}{fig}\PY{o}{.}\PY{n}{layout}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} invoke changes}
+        \PY{n}{salary\PYZus{}dist\PYZus{}year\PYZus{}container}\PY{o}{.}\PY{n}{observe}\PY{p}{(}\PY{n}{response\PYZus{}salary\PYZus{}dist}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{salary\PYZus{}dist\PYZus{}department\PYZus{}one\PYZus{}textbox}\PY{o}{.}\PY{n}{observe}\PY{p}{(}\PY{n}{response\PYZus{}salary\PYZus{}dist}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{salary\PYZus{}dist\PYZus{}campus\PYZus{}dropdown}\PY{o}{.}\PY{n}{observe}\PY{p}{(}\PY{n}{response\PYZus{}salary\PYZus{}dist}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} define layout container}
+        \PY{n}{salary\PYZus{}dist\PYZus{}container} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{p}{[}\PY{n}{salary\PYZus{}dist\PYZus{}campus\PYZus{}dropdown}\PY{p}{,} \PY{n}{salary\PYZus{}dist\PYZus{}department\PYZus{}one\PYZus{}textbox}\PY{p}{,} \PY{n}{salary\PYZus{}dist\PYZus{}year\PYZus{}container}\PY{p}{]}\PY{p}{)}
+        \PY{n}{display}\PY{p}{(}\PY{n}{salary\PYZus{}dist\PYZus{}container}\PY{p}{)}
+        \PY{n}{display}\PY{p}{(}\PY{n}{g\PYZus{}salary\PYZus{}dist}\PY{p}{)}
 \end{Verbatim}
 
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}5}]:} <plotly.tools.PlotlyDisplay object>
-\end{Verbatim}
-            
+    
+    \begin{verbatim}
+HBox(children=(Dropdown(description='Campus:', index=2, options=('Chicago', 'Springfield', 'Urbana-Champaign')…
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+GraphWidget()
+    \end{verbatim}
+
+    
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} Q3: What is the size of Computer Science Science department across UIC, UIS, UIUC?}
-        \PY{n}{fig} \PY{o}{=} \PY{n}{createFigDiffDepAndCampus}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Computer Science}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{*}\PY{l+m+mi}{3}\PY{p}{,} \PYZbs{}
-                                  \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Chicago}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Springfield}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Urbana\PYZhy{}Champaign}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{year}\PY{o}{=}\PY{l+m+mi}{2017}\PY{p}{)}
-        \PY{n}{py}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{salaryPieCS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} call the create fig function}
+        \PY{c+c1}{\PYZsh{} fig = createFigHist([\PYZsq{}Information Sciences\PYZsq{}, \PYZsq{}Computer Science\PYZsq{}])}
+        \PY{c+c1}{\PYZsh{} py.iplot(fig, filename=\PYZsq{}salaryHist3\PYZsq{})}
+        
+        \PY{c+c1}{\PYZsh{} import graph}
+        \PY{n}{salary\PYZus{}compare\PYZus{}url} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://plot.ly/\PYZti{}wangqiwen/8/salary\PYZhy{}range\PYZhy{}of\PYZhy{}faculty\PYZhy{}in\PYZhy{}mathematics\PYZhy{}information\PYZhy{}sciences/}\PY{l+s+s2}{\PYZdq{}}
+        \PY{n}{g\PYZus{}salary\PYZus{}compare} \PY{o}{=} \PY{n}{GraphWidget}\PY{p}{(}\PY{n}{salary\PYZus{}compare\PYZus{}url}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} create widget}
+        \PY{n}{tab\PYZus{}contents} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Department 1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Department 2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        
+        \PY{n}{bundleList} \PY{o}{=} \PY{p}{[}\PY{n}{createBundle}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Mathematics}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{,} \PY{n}{createBundle}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Information Sciences}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{]}
+        \PY{n}{children} \PY{o}{=} \PY{p}{[}\PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{n}{b}\PY{p}{)} \PY{k}{for} \PY{n}{b} \PY{o+ow}{in} \PY{n}{bundleList}\PY{p}{]}
+        \PY{n}{tab} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{Tab}\PY{p}{(}\PY{p}{)}
+        \PY{n}{tab}\PY{o}{.}\PY{n}{children} \PY{o}{=} \PY{n}{children}
+        \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{children}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+            \PY{n}{tab}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{n}{i}\PY{p}{,} \PY{n}{tab\PYZus{}contents}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{response\PYZus{}salary\PYZus{}compare}\PY{p}{(}\PY{n}{change}\PY{p}{)}\PY{p}{:}
+            \PY{c+c1}{\PYZsh{} initialize}
+            \PY{n}{campus} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+            \PY{n}{departments} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+            \PY{n}{years} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+        
+            \PY{k}{for} \PY{n}{bundle} \PY{o+ow}{in} \PY{n}{bundleList}\PY{p}{:}
+                \PY{k}{if}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{bundle}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{value}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{campus}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{bundle}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{value}\PY{p}{)}
+                    \PY{n}{departments}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{bundle}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{value}\PY{p}{)}
+                    \PY{n}{years}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{bundle}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{.}\PY{n}{value}\PY{p}{)}
+            \PY{n}{fig} \PY{o}{=} \PY{n}{createFigHist}\PY{p}{(}\PY{n}{departments}\PY{p}{,} \PY{n}{campus}\PY{o}{=}\PY{n}{campus}\PY{p}{,} \PY{n}{year}\PY{o}{=}\PY{n}{years}\PY{p}{)}
+            \PY{k}{if} \PY{n+nb}{len}\PY{p}{(}\PY{n}{fig}\PY{o}{.}\PY{n}{data}\PY{p}{)} \PY{o}{==} \PY{l+m+mi}{2} \PY{o+ow}{and} \PY{n+nb}{len}\PY{p}{(}\PY{n}{fig}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{x}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n+nb}{len}\PY{p}{(}\PY{n}{fig}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{.}\PY{n}{x}\PY{p}{)} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0}\PY{p}{:}
+                \PY{k}{for} \PY{n}{idx} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{fig}\PY{o}{.}\PY{n}{data}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                    \PY{n}{g\PYZus{}salary\PYZus{}compare}\PY{o}{.}\PY{n}{restyle}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n+nb}{list}\PY{p}{(}\PY{n}{fig}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{name}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{fig}\PY{o}{.}\PY{n}{data}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{o}{.}\PY{n}{name}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{indices} \PY{o}{=} \PY{n}{idx}\PY{p}{)}
+                \PY{n}{g\PYZus{}salary\PYZus{}compare}\PY{o}{.}\PY{n}{relayout}\PY{p}{(}\PY{n}{fig}\PY{o}{.}\PY{n}{layout}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} invoke changes}
+        \PY{k}{for} \PY{n}{bundle} \PY{o+ow}{in} \PY{n}{bundleList}\PY{p}{:}
+            \PY{k}{for} \PY{n}{ele} \PY{o+ow}{in} \PY{n}{bundle}\PY{p}{:}
+                \PY{n}{ele}\PY{o}{.}\PY{n}{observe}\PY{p}{(}\PY{n}{response\PYZus{}salary\PYZus{}compare}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        
+        \PY{c+c1}{\PYZsh{} display}
+        \PY{n}{display}\PY{p}{(}\PY{n}{tab}\PY{p}{)}
+        
+        \PY{n}{display}\PY{p}{(}\PY{n}{g\PYZus{}salary\PYZus{}compare}\PY{p}{)}
 \end{Verbatim}
 
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}6}]:} <plotly.tools.PlotlyDisplay object>
-\end{Verbatim}
-            
+    
+    \begin{verbatim}
+Tab(children=(HBox(children=(Dropdown(description='Campus:', index=2, options=('Chicago', 'Springfield', 'Urba…
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+GraphWidget()
+    \end{verbatim}
+
+    
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}7}]:} \PY{c+c1}{\PYZsh{} Q3: What is the size of Information Science department across UIC, UIS, UIUC?}
-        \PY{n}{ig} \PY{o}{=} \PY{n}{createFigDiffDepAndCampus}\PY{p}{(}\PYZbs{}
-                \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Information/Decision Sciences}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Management Information Systems}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Information Sciences}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PYZbs{}
-                \PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Chicago}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Springfield}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Urbana\PYZhy{}Champaign}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{year}\PY{o}{=}\PY{l+m+mi}{2017}\PY{p}{)}
-        \PY{n}{py}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{salaryPieIS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}7}]:} \PY{c+c1}{\PYZsh{} Q3: What is the size of Computer Science Science department across UIC, UIS, UIUC?}
+        \PY{c+c1}{\PYZsh{} fig = createFigDiffDepAndCampus([\PYZsq{}History\PYZsq{}]*3, \PYZbs{}}
+        \PY{c+c1}{\PYZsh{}                          [\PYZdq{}Chicago\PYZdq{}, \PYZdq{}Springfield\PYZdq{}, \PYZdq{}Urbana\PYZhy{}Champaign\PYZdq{}], year=2017)}
+        \PY{c+c1}{\PYZsh{} py.iplot(fig, filename=\PYZsq{}salaryCampus\PYZsq{})}
+        
+        \PY{c+c1}{\PYZsh{} import graph}
+        \PY{n}{salary\PYZus{}population\PYZus{}history} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://plot.ly/\PYZti{}wangqiwen/14}\PY{l+s+s2}{\PYZdq{}}
+        \PY{n}{g\PYZus{}salary\PYZus{}population\PYZus{}history} \PY{o}{=} \PY{n}{GraphWidget}\PY{p}{(}\PY{n}{salary\PYZus{}population\PYZus{}history}\PY{p}{)}
+        \PY{n}{display}\PY{p}{(}\PY{n}{g\PYZus{}salary\PYZus{}population\PYZus{}history}\PY{p}{)}
 \end{Verbatim}
 
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}7}]:} <plotly.tools.PlotlyDisplay object>
-\end{Verbatim}
-            
+    
+    \begin{verbatim}
+GraphWidget()
+    \end{verbatim}
+
+    
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{fig} \PY{o}{=} \PY{n}{createFigListAllDepSalary}\PY{p}{(}\PY{n}{top}\PY{o}{=}\PY{l+m+mi}{25}\PY{p}{)}
-        \PY{n}{py}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{listSalaryBar}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} Q3: What is the size of Information Science department across UIC, UIS, UIUC?}
+        \PY{c+c1}{\PYZsh{} fig = createFigDiffDepAndCampus(\PYZbs{}}
+        \PY{c+c1}{\PYZsh{}         [\PYZdq{}Information/Decision Sciences\PYZdq{}, \PYZdq{}Management Information Systems\PYZdq{}, \PYZdq{}Information Sciences\PYZdq{}], \PYZbs{}}
+        \PY{c+c1}{\PYZsh{}         [\PYZdq{}Chicago\PYZdq{}, \PYZdq{}Springfield\PYZdq{}, \PYZdq{}Urbana\PYZhy{}Champaign\PYZdq{}], year=2017)}
+        \PY{c+c1}{\PYZsh{} py.iplot(fig, filename=\PYZsq{}salaryCampus\PYZsq{})}
+        
+        \PY{c+c1}{\PYZsh{} import graph}
+        \PY{n}{salary\PYZus{}population\PYZus{}is} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://plot.ly/\PYZti{}wangqiwen/24}\PY{l+s+s2}{\PYZdq{}}
+        \PY{n}{g\PYZus{}salary\PYZus{}population\PYZus{}is} \PY{o}{=} \PY{n}{GraphWidget}\PY{p}{(}\PY{n}{salary\PYZus{}population\PYZus{}is}\PY{p}{)}
+        \PY{n}{display}\PY{p}{(}\PY{n}{g\PYZus{}salary\PYZus{}population\PYZus{}is}\PY{p}{)}
 \end{Verbatim}
 
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}8}]:} <plotly.tools.PlotlyDisplay object>
-\end{Verbatim}
-            
+    
+    \begin{verbatim}
+GraphWidget()
+    \end{verbatim}
+
+    
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{fig} \PY{o}{=} \PY{n}{createFigListAllDepSalary}\PY{p}{(}\PY{n}{showJob}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{top}\PY{o}{=}\PY{l+m+mi}{50}\PY{p}{)}
-        \PY{n}{py}\PY{o}{.}\PY{n}{iplot}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{filename}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{listSalaryBarJob}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{} fig = createFigListAllDepSalary(top = 10)}
+        \PY{c+c1}{\PYZsh{} py.iplot(fig, filename=\PYZsq{}listSalaryBar\PYZsq{})}
+        
+        \PY{c+c1}{\PYZsh{} import graph}
+        \PY{n}{list\PYZus{}dep\PYZus{}salary} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://plot.ly/\PYZti{}wangqiwen/18/median\PYZhy{}salary\PYZhy{}median\PYZhy{}salary\PYZhy{}median\PYZhy{}salary/}\PY{l+s+s2}{\PYZdq{}}
+        \PY{n}{g\PYZus{}list\PYZus{}dep\PYZus{}salary} \PY{o}{=} \PY{n}{GraphWidget}\PY{p}{(}\PY{n}{list\PYZus{}dep\PYZus{}salary}\PY{p}{)}
+        \PY{n}{display}\PY{p}{(}\PY{n}{g\PYZus{}list\PYZus{}dep\PYZus{}salary}\PY{p}{)}
 \end{Verbatim}
 
 
-\begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}9}]:} <plotly.tools.PlotlyDisplay object>
+    
+    \begin{verbatim}
+GraphWidget()
+    \end{verbatim}
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{}fig = createFigListAllDepJobSalary(top = 10)}
+         \PY{c+c1}{\PYZsh{}py.iplot(fig, filename=\PYZsq{}listSalaryBarJob\PYZsq{})}
+         
+         
+         \PY{c+c1}{\PYZsh{} import graph}
+         \PY{n}{list\PYZus{}dep\PYZus{}job\PYZus{}salary} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://plot.ly/\PYZti{}wangqiwen/20/median\PYZhy{}salary\PYZhy{}median\PYZhy{}salary\PYZhy{}median\PYZhy{}salary/}\PY{l+s+s2}{\PYZdq{}}
+         \PY{n}{g\PYZus{}list\PYZus{}dep\PYZus{}job\PYZus{}salary} \PY{o}{=} \PY{n}{GraphWidget}\PY{p}{(}\PY{n}{list\PYZus{}dep\PYZus{}job\PYZus{}salary}\PY{p}{)}
+         
+         \PY{k}{def} \PY{n+nf}{response\PYZus{}job}\PY{p}{(}\PY{n}{change}\PY{p}{)}\PY{p}{:}
+             \PY{n}{year} \PY{o}{=} \PY{n}{salary\PYZus{}job\PYZus{}year\PYZus{}slider}\PY{o}{.}\PY{n}{value}
+             \PY{n}{job} \PY{o}{=} \PY{n}{salary\PYZus{}job\PYZus{}dropdown}\PY{o}{.}\PY{n}{value}
+             \PY{n}{top} \PY{o}{=} \PY{n}{salary\PYZus{}job\PYZus{}top}\PY{o}{.}\PY{n}{value}
+             
+             \PY{c+c1}{\PYZsh{} traces}
+             \PY{n}{trace1} \PY{o}{=} \PY{n}{createAllDepJobSalaryTrace}\PY{p}{(}\PY{n}{year}\PY{o}{=}\PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{o}{=}\PY{n}{job}\PY{p}{,} \PY{n}{top}\PY{o}{=}\PY{n}{top}\PY{p}{)}
+             \PY{n}{trace2} \PY{o}{=} \PY{n}{createAllDepJobSalaryTrace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Chicago}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year}\PY{o}{=}\PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{o}{=}\PY{n}{job}\PY{p}{,} \PY{n}{top}\PY{o}{=}\PY{n}{top}\PY{p}{)}
+             \PY{n}{trace3} \PY{o}{=} \PY{n}{createAllDepJobSalaryTrace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Springfield}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{year}\PY{o}{=}\PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{o}{=}\PY{n}{job}\PY{p}{,} \PY{n}{top}\PY{o}{=}\PY{n}{top}\PY{p}{)}
+             
+             \PY{c+c1}{\PYZsh{} update subplot titles}
+             \PY{n}{subplot\PYZus{}titles}\PY{o}{=}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Median Salary of }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ in Urbana\PYZhy{}Champaign}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{p}{)}\PY{p}{,} \PYZbs{}
+                           \PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Median Salary of }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ in Chicago}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{p}{)}\PY{p}{,} \PYZbs{}
+                           \PY{l+s+s1}{\PYZsq{}}\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ Median Salary of }\PY{l+s+si}{\PYZob{}\PYZcb{}}\PY{l+s+s1}{ in Springfield}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{year}\PY{p}{,} \PY{n}{job}\PY{p}{)}\PY{p}{)}
+             
+             \PY{c+c1}{\PYZsh{} update style and layout}
+             \PY{n}{g\PYZus{}list\PYZus{}dep\PYZus{}job\PYZus{}salary}\PY{o}{.}\PY{n}{restyle}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n+nb}{list}\PY{p}{(}\PY{n}{trace1}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n+nb}{list}\PY{p}{(}\PY{n}{trace1}\PY{o}{.}\PY{n}{y}\PY{p}{)}\PY{p}{]}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{indices} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+             \PY{n}{g\PYZus{}list\PYZus{}dep\PYZus{}job\PYZus{}salary}\PY{o}{.}\PY{n}{restyle}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n+nb}{list}\PY{p}{(}\PY{n}{trace2}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n+nb}{list}\PY{p}{(}\PY{n}{trace2}\PY{o}{.}\PY{n}{y}\PY{p}{)}\PY{p}{]}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{indices} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+             \PY{n}{g\PYZus{}list\PYZus{}dep\PYZus{}job\PYZus{}salary}\PY{o}{.}\PY{n}{restyle}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n+nb}{list}\PY{p}{(}\PY{n}{trace3}\PY{o}{.}\PY{n}{x}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{p}{[}\PY{n+nb}{list}\PY{p}{(}\PY{n}{trace3}\PY{o}{.}\PY{n}{y}\PY{p}{)}\PY{p}{]}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{indices} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+             \PY{n}{g\PYZus{}list\PYZus{}dep\PYZus{}job\PYZus{}salary}\PY{o}{.}\PY{n}{relayout}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{annotations[0].text}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{subplot\PYZus{}titles}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PYZbs{}
+                                             \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{annotations[1].text}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{subplot\PYZus{}titles}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PYZbs{}
+                                             \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{annotations[2].text}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{subplot\PYZus{}titles}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{p}{\PYZcb{}}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} define layout container}
+         \PY{n}{salary\PYZus{}job\PYZus{}dropdown} \PY{o}{=} \PY{n}{createDropDownForJobs}\PY{p}{(}\PY{p}{)}
+         \PY{n}{salary\PYZus{}job\PYZus{}year\PYZus{}slider} \PY{o}{=} \PY{n}{createIntSliderForYear}\PY{p}{(}\PY{p}{)}
+         \PY{n}{salary\PYZus{}job\PYZus{}top} \PY{o}{=} \PY{n}{createIntTop}\PY{p}{(}\PY{p}{)}
+         \PY{n}{salary\PYZus{}job\PYZus{}container} \PY{o}{=} \PY{n}{widgets}\PY{o}{.}\PY{n}{HBox}\PY{p}{(}\PY{p}{[}\PY{n}{salary\PYZus{}job\PYZus{}dropdown}\PY{p}{,} \PY{n}{salary\PYZus{}job\PYZus{}year\PYZus{}slider}\PY{p}{,} \PY{n}{salary\PYZus{}job\PYZus{}top}\PY{p}{]}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{} invoke changes}
+         \PY{n}{salary\PYZus{}job\PYZus{}dropdown}\PY{o}{.}\PY{n}{observe}\PY{p}{(}\PY{n}{response\PYZus{}job}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{salary\PYZus{}job\PYZus{}year\PYZus{}slider}\PY{o}{.}\PY{n}{observe}\PY{p}{(}\PY{n}{response\PYZus{}job}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         \PY{n}{salary\PYZus{}job\PYZus{}top}\PY{o}{.}\PY{n}{observe}\PY{p}{(}\PY{n}{response\PYZus{}job}\PY{p}{,} \PY{n}{names}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+         
+         
+         \PY{n}{display}\PY{p}{(}\PY{n}{salary\PYZus{}job\PYZus{}container}\PY{p}{)}
+         \PY{n}{display}\PY{p}{(}\PY{n}{g\PYZus{}list\PYZus{}dep\PYZus{}job\PYZus{}salary}\PY{p}{)}
 \end{Verbatim}
-            
+
+
+    
+    \begin{verbatim}
+HBox(children=(Dropdown(description='Job Title:', index=2, options=('PROF', 'ASSOC PROF', 'ASST PROF', 'LECTUR…
+    \end{verbatim}
+
+    
+    
+    \begin{verbatim}
+GraphWidget()
+    \end{verbatim}
+
+    
 
     % Add a bibliography block to the postdoc
     
