@@ -13,6 +13,7 @@ import plotly.tools as tls
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_dangerously_set_inner_html
 
 # helper
 from helper_fig import *
@@ -100,9 +101,16 @@ app = dash.Dash('')
 
 # bootstrap
 external_css = ["https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
-                "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", ]
+                "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", ]
 for css in external_css:
     app.css.append_css({"external_url": css})
+
+external_js = ['https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js', 
+                "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"]
+for js in external_js:
+    app.scripts.append_script({
+        "external_url": js
+    })
 
 
 # import fig
@@ -117,148 +125,175 @@ list_dep_salary = py.get_figure(list_dep_salary_url, raw=True)
 list_dep_job_salary_url = "https://plot.ly/~wangqiwen/20/median-salary-median-salary-median-salary/"
 list_dep_job_salary = py.get_figure(list_dep_job_salary_url, raw=True)
 
-
-
 app.layout = html.Div([
-    # show distribution of the salary
-    # div for each widget + graph
-    html.Div([
-        dcc.Markdown(d("""
-                ## Please add some explanation to the graph here.
-            """)),
-        # div for each widget
-        html.Div([
-            html.Div([
-            createDropDownForCampus(id="salary_dist_campus_dropdown")],
-            className="col-md-4"),
-            html.Div([
-            createTextBoxForDep(id="salary_dist_department_one_textbox")],
-            className="col-md-4"),
-            html.Div([
-            createIntSliderForYear(id="salary_dist_year_container")], 
-            className="col-md-4")
 
-        ], className="row"),
 
-        # div for each graph
-        dcc.Graph(
-            id='salary_hist',
-            figure=salary_hist)]),
-    
-    # compare 2 department salaries
-    # div for each widget + graph
+    # navigation bar
+    dash_dangerously_set_inner_html.DangerouslySetInnerHTML('''
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+        <li><a data-toggle="tab" href="#menu1">Give it an awesome name (distribution)</a></li>
+        <li><a data-toggle="tab" href="#menu2">Give it an awesome name (comparation)</a></li>
+        <li><a data-toggle="tab" href="#menu3">Give it an awesome name (population + salary)</a></li>
+        <li><a data-toggle="tab" href="#menu4">Give it an awesome name (list salary)</a></li>
+    </ul>
+    '''),
+    # tab content
     html.Div([
-        dcc.Markdown(d("""
-                ## Please add some explanation to the graph here.
-        """)),
-        # div for each widget
-        # first row
-        dcc.Markdown(d("""
-            #### Main Department
-        """)),
-        html.Div([
+
+            # Project description
             html.Div([
+                dcc.Markdown(d("""
+                        ## Project description
+
+                        ### Some desciptions..........please add....
+                    """)),
+            ], id="home", className="tab-pane fade in active"),
+
+            # show distribution of the salary
+            # div for each widget + graph
+            html.Div([
+                dcc.Markdown(d("""
+                        ## Please add some explanation to the graph here.
+                    """)),
+                # div for each widget
+                html.Div([
+                    html.Div([
+                    createDropDownForCampus(id="salary_dist_campus_dropdown")],
+                    className="col-md-4"),
+                    html.Div([
+                    createTextBoxForDep(id="salary_dist_department_one_textbox")],
+                    className="col-md-4"),
+                    html.Div([
+                    createIntSliderForYear(id="salary_dist_year_container")], 
+                    className="col-md-4")
+
+                ], className="row"),
+
+                # div for each graph
+                dcc.Graph(
+                    id='salary_hist',
+                    figure=salary_hist)
+            ], id="menu1", className="tab-pane fade"),
             
-            createDropDownForCampus(id="salary_compare_campus_dropdown1")],
-            className="col-md-4"),
+            # compare 2 department salaries
+            # div for each widget + graph
             html.Div([
-            createTextBoxForDep(id="salary_compare_department_textbox1")],
-            className="col-md-4"),
+                dcc.Markdown(d("""
+                        ## Please add some explanation to the graph here.
+                """)),
+                # div for each widget
+                # first row
+                dcc.Markdown(d("""
+                    #### Main Department
+                """)),
+                html.Div([
+                    html.Div([
+                    
+                    createDropDownForCampus(id="salary_compare_campus_dropdown1")],
+                    className="col-md-4"),
+                    html.Div([
+                    createTextBoxForDep(id="salary_compare_department_textbox1")],
+                    className="col-md-4"),
+                    html.Div([
+                    createIntSliderForYear(id="salary_compare_year1")], 
+                    className="col-md-4")
+
+                ], className="row"),
+                # second row
+                dcc.Markdown(d("""
+                    #### Secondary Department
+                """)),
+                html.Div([
+                    html.Div([
+                    createDropDownForCampus(id="salary_compare_campus_dropdown2")],
+                    className="col-md-4"),
+                    html.Div([
+                    createTextBoxForDep(id="salary_compare_department_textbox2", v="Information Sciences")],
+                    className="col-md-4"),
+                    html.Div([
+                    createIntSliderForYear(id="salary_compare_year2")], 
+                    className="col-md-4")
+
+                ], className="row"),
+                # graoh
+                dcc.Graph(
+                    id='salary_compare',
+                    figure=salary_compare
+                )
+            ], id="menu2", className="tab-pane fade"),
+            # compare job across the campus
+            # div for each widget + graph
             html.Div([
-            createIntSliderForYear(id="salary_compare_year1")], 
-            className="col-md-4")
+                dcc.Markdown(d("""
+                        ## Please add some explanation to the graph here.
 
-        ], className="row"),
-        # second row
-        dcc.Markdown(d("""
-            #### Secondary Department
-        """)),
-        html.Div([
+                        #### Graph to compare salaries across the campus
+
+                        ##### Observation: Springfield has the least population, Urbana-Champiang has the most faculty population in the dataset.
+                        For most of the department,  Springfield has the least median salary in the dataset.
+                    """)),
+                # div for each widget
+                html.Div([
+                    html.Div([
+                    createDropDownForDeparmentInAllCampus(id="salary_across_campus_dropdown")],
+                    className="col-md-4"),
+                    html.Div([
+                    createIntSliderForYear(id="salary_across_campus_year")], 
+                    className="col-md-4")
+
+                ], className="row"),
+
+                # div for each graph
+                dcc.Graph(
+                    id='salary_across_campus',
+                    figure=salary_population_is)
+            ], id="menu3", className="tab-pane fade"),
+            # list median department salary
+            # div for each widget + graph
             html.Div([
-            createDropDownForCampus(id="salary_compare_campus_dropdown2")],
-            className="col-md-4"),
-            html.Div([
-            createTextBoxForDep(id="salary_compare_department_textbox2", v="Information Sciences")],
-            className="col-md-4"),
-            html.Div([
-            createIntSliderForYear(id="salary_compare_year2")], 
-            className="col-md-4")
+                html.Div([
+                    dcc.Markdown(d("""
+                            ## Please add some explanation to the graph here.
 
-        ], className="row"),
-        # graoh
-        dcc.Graph(
-            id='salary_compare',
-            figure=salary_compare
-            )
-        ]),
-    # compare job across the campus
-    # div for each widget + graph
-    html.Div([
-        dcc.Markdown(d("""
-                ## Please add some explanation to the graph here.
+                            #### Median Salary of Faculty Members
 
-                #### Graph to compare salaries across the campus
+                        """)),
+                    # div for each graph
+                    dcc.Graph(
+                        id='median_salary_all_faculty',
+                        figure=list_dep_salary)
+                ]),
+                # list median department salary for jobs
+                # div for each widget + graph
+                html.Div([
+                    dcc.Markdown(d("""
+                            ## Please add some explanation to the graph here.
 
-                ##### Observation: Springfield has the least population, Urbana-Champiang has the most faculty population in the dataset.
-                For most of the department,  Springfield has the least median salary in the dataset.
-            """)),
-        # div for each widget
-        html.Div([
-            html.Div([
-            createDropDownForDeparmentInAllCampus(id="salary_across_campus_dropdown")],
-            className="col-md-4"),
-            html.Div([
-            createIntSliderForYear(id="salary_across_campus_year")], 
-            className="col-md-4")
+                            #### Median salary of the selected job
+                        """)),
+                    # div for each widget
+                    html.Div([
+                        html.Div([
+                        createDropDownForJobs(id="list_dep_job_salary_dropdown")],
+                        className="col-md-4"),
+                        html.Div([
+                        createIntSliderForYear(id="list_dep_job_salary_year")], 
+                        className="col-md-4"),
+                        html.Div([
+                        createIntTop(id="list_dep_job_salary_top")], 
+                        className="col-md-4")
 
-        ], className="row"),
+                    ], className="row"),
 
-        # div for each graph
-        dcc.Graph(
-            id='salary_across_campus',
-            figure=salary_population_is)
-    ]),
-    # list median department salary
-    # div for each widget + graph
-    html.Div([
-        dcc.Markdown(d("""
-                ## Please add some explanation to the graph here.
-
-                #### Median Salary of Faculty Members
-
-            """)),
-        # div for each graph
-        dcc.Graph(
-            id='median_salary_all_faculty',
-            figure=list_dep_salary)
-    ]),
-    # list median department salary for jobs
-    # div for each widget + graph
-    html.Div([
-        dcc.Markdown(d("""
-                ## Please add some explanation to the graph here.
-
-                #### Median salary of the selected job
-            """)),
-        # div for each widget
-        html.Div([
-            html.Div([
-            createDropDownForJobs(id="list_dep_job_salary_dropdown")],
-            className="col-md-4"),
-            html.Div([
-            createIntSliderForYear(id="list_dep_job_salary_year")], 
-            className="col-md-4"),
-            html.Div([
-            createIntTop(id="list_dep_job_salary_top")], 
-            className="col-md-4")
-
-        ], className="row"),
-
-        # div for each graph
-        dcc.Graph(
-            id='list_dep_job_salary',
-            figure=list_dep_job_salary)
-    ]),
+                    # div for each graph
+                    dcc.Graph(
+                        id='list_dep_job_salary',
+                        figure=list_dep_job_salary)
+            ]),
+            ], id="menu4", className="tab-pane fade")
+            
+    ], className="tab-content")
 ], className="container", style={"padding": "10%"}
 )
 
