@@ -231,3 +231,22 @@ def createFigListAllDepJobSalary(year = 2017, job = "ASST PROF", top = None):
         showlegend=False,
         )
     return fig
+
+def boxPlotAllYears(department, campus):
+    # get the salary
+    data = []
+    for year in range(2013, 2018):
+        year_col = "Salary" + str(year)
+        salary = getSalary(department, campus, year_col)
+        data.append(Box(
+            y=salary,
+            boxpoints='all',
+            name = year,
+            jitter=0.3,
+            pointpos=-1.8)
+            )
+    layout = Layout(
+        title = "Box Plot for Faculties in {} Over 5 Years".format(department)
+    )
+
+    return Figure(data=data,layout=layout)

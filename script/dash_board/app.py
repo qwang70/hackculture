@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 
@@ -97,7 +98,8 @@ def createIntTop(id):
 
 
 # start up Dash app
-app = dash.Dash('')
+app = dash.Dash(__name__)
+server = app.server
 
 # bootstrap
 external_css = ["https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
@@ -124,23 +126,27 @@ list_dep_salary_url = "https://plot.ly/~wangqiwen/18/median-salary-median-salary
 list_dep_salary = py.get_figure(list_dep_salary_url, raw=True)
 list_dep_job_salary_url = "https://plot.ly/~wangqiwen/20/median-salary-median-salary-median-salary/"
 list_dep_job_salary = py.get_figure(list_dep_job_salary_url, raw=True)
+salary_boxplot_url = "https://plot.ly/~wangqiwen/44/box-plot-for-faculties-in-computer-science-over-5-years/"
+salary_boxplot = py.get_figure(salary_boxplot_url, raw=True)
 
 app.layout = html.Div([
 
+    html.Div([
+    html.Div([
 
     # navigation bar
     dash_dangerously_set_inner_html.DangerouslySetInnerHTML('''
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs flex-column">
         <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
         <li><a data-toggle="tab" href="#menu1">Give it an awesome name (distribution)</a></li>
         <li><a data-toggle="tab" href="#menu2">Give it an awesome name (comparation)</a></li>
         <li><a data-toggle="tab" href="#menu3">Give it an awesome name (population + salary)</a></li>
         <li><a data-toggle="tab" href="#menu4">Give it an awesome name (list salary)</a></li>
+        <li><a data-toggle="tab" href="#menu5">Give it an awesome name (dep over years)</a></li>
     </ul>
     '''),
     # tab content
     html.Div([
-
             # Project description
             html.Div([
                 dcc.Markdown(d("""
@@ -291,13 +297,51 @@ app.layout = html.Div([
                         id='list_dep_job_salary',
                         figure=list_dep_job_salary)
             ]),
-            ], id="menu4", className="tab-pane fade")
+            ], id="menu4", className="tab-pane fade"),
+            html.Div([
+                dcc.Markdown(d("""
+                        ## Please add some explanation to the graph here.
+                    """)),
+                # div for each widget
+                html.Div([
+                    html.Div([
+                    createDropDownForCampus(id="salary_dist_boxplot_dropdown")],
+                    className="col-md-4"),
+                    html.Div([
+                    createTextBoxForDep(id="salary_dist_boxplot_textbox")],
+                    className="col-md-4"),
+
+                ], className="row"),
+
+                # div for each graph
+                dcc.Graph(
+                    id='salary_boxplot',
+                    figure=salary_boxplot)
+            ], id="menu5", className="tab-pane fade"),
             
-    ], className="tab-content")
+            
+        ], className="tab-content"),
+    ], className="col-md-3"),
+    ], className="row"),
 ], className="container", style={"padding": "10%"}
 )
 
 # app callback
+# boxplot
+@app.callback(
+    dash.dependencies.Output('salary_boxplot', 'figure'),
+    [dash.dependencies.Input('salary_dist_boxplot_dropdown', 'value'),
+    dash.dependencies.Input('salary_dist_boxplot_textbox', 'value')],
+    [dash.dependencies.State('salary_boxplot', 'figure')])
+def update_salary_dist(dropdown_val, textbox_val, fig):
+    department = textbox_val
+    campus = dropdown_val
+    new_fig = boxPlotAllYears(department, campus=campus)
+    if len(new_fig.data[0].y) > 0:
+        fig = new_fig
+    return fig
+
+# list department job salary
 @app.callback(
     dash.dependencies.Output('list_dep_job_salary', 'figure'),
     [dash.dependencies.Input('list_dep_job_salary_dropdown', 'value'),
@@ -380,4 +424,4 @@ def update_salary_dist(dropdown_val, textbox_val, year_val, fig):
     return fig
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
